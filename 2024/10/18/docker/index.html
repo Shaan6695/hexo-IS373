@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Docker | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Virtualization and Containerization are both technologies that allow for running multiple environments on a single physical machine, but they have distinct differences, particularly in how they operat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker">
+<meta property="og:url" content="http://example.com/2024/10/18/docker/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Virtualization and Containerization are both technologies that allow for running multiple environments on a single physical machine, but they have distinct differences, particularly in how they operat">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/user-attachments/assets/2786a0aa-4fc4-470a-836a-a32c86341f3f">
+<meta property="og:image" content="https://github.com/user-attachments/assets/5537176c-e415-4274-a86e-e150f7713472">
+<meta property="og:image" content="https://github.com/user-attachments/assets/deb8aae0-2952-4b1d-b840-ee9a210fa6d5">
+<meta property="article:published_time" content="2024-10-18T13:30:50.656Z">
+<meta property="article:modified_time" content="2024-10-18T13:30:50.656Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/user-attachments/assets/2786a0aa-4fc4-470a-836a-a32c86341f3f">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/18/docker/" class="article-date">
+  <time class="dt-published" datetime="2024-10-18T13:30:50.656Z" itemprop="datePublished">2024-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Docker
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Virtualization and Containerization are both technologies that allow for running multiple environments on a single physical machine, but they have distinct differences, particularly in how they operate and their resource efficiency. Here’s how they compare in the context of Docker (a containerization platform):</p>
+<p><img src="https://github.com/user-attachments/assets/2786a0aa-4fc4-470a-836a-a32c86341f3f" alt="kubernetes-vs-docker-3"></p>
+<h1 id="1-Virtualization"><a href="#1-Virtualization" class="headerlink" title="1. Virtualization"></a>1. Virtualization</h1><p>Definition: Virtualization uses a hypervisor to create and manage virtual machines (VMs), where each VM runs its own complete operating system (OS) and operates in isolation.<br>Architecture: Each virtual machine has a full OS, and the hypervisor sits on top of the host system to manage multiple VMs. The VMs share hardware resources, but each has its own independent OS.<br>Overhead: Virtual machines are resource-heavy because each VM includes not only the application and its dependencies but also a complete OS, which requires CPU, memory, and storage space.<br>Isolation: VMs provide strong isolation because each VM runs in a completely separate environment.<br>Use Case: Typically used when running different OSs or when strict isolation is needed.<br><img src="https://github.com/user-attachments/assets/5537176c-e415-4274-a86e-e150f7713472" alt="virtual"></p>
+<h1 id="2-Containerization"><a href="#2-Containerization" class="headerlink" title="2. Containerization"></a>2. Containerization</h1><p>Definition: Containerization, as implemented in Docker, allows applications to run in isolated environments called containers. Unlike VMs, containers share the host OS’s kernel, but each container operates independently with its own libraries and dependencies.<br>Architecture: Docker containers share the host OS, which means there’s no need for a hypervisor or full OS per container. This makes containers lightweight and efficient.<br>Overhead: Containers are more lightweight because they don’t require a full OS. Only the necessary binaries and libraries for the application are packaged in the container. The host’s kernel is shared across containers.<br>Isolation: Containers provide isolation for applications, but since they share the OS kernel, they offer less isolation than virtual machines.<br>Use Case: Ideal for microservices, scalable applications, and environments where multiple instances of the same OS are needed.<br><img src="https://github.com/user-attachments/assets/deb8aae0-2952-4b1d-b840-ee9a210fa6d5" alt="0_i8OzbS38Oo9-MGcW"></p>
+<h1 id="Docker-and-Containerization"><a href="#Docker-and-Containerization" class="headerlink" title="Docker and Containerization"></a>Docker and Containerization</h1><p>Docker is the most popular containerization platform. It enables developers to create, deploy, and run applications in containers, ensuring that they run the same regardless of the environment. Docker containers package applications with all their dependencies, allowing them to run consistently across different environments without the overhead of virtualization. This is why Docker is favored in modern DevOps pipelines, continuous integration&#x2F;continuous delivery (CI&#x2F;CD), and microservice architectures.<br>In summary, Docker (containerization) provides a lightweight, efficient, and fast alternative to virtualization when running applications, especially in environments where agility, scalability, and performance are crucial.</p>
+<p>Kubernetes and Docker serve different but complementary roles in container orchestration and management:</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p>Containerization: Docker is a platform for creating, deploying, and managing containers. It allows you to package applications and their dependencies into standardized units called containers.<br>Image Management: Docker enables you to build and manage container images, which can be stored in repositories and easily shared.<br>Development Environment: Docker simplifies the development process by ensuring that applications run the same way in development, testing, and production environments.</p>
+<h1 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h1><p>Orchestration: Kubernetes is a container orchestration platform. It manages the deployment, scaling, and operation of containers across a cluster of machines.<br>Resource Management: Kubernetes handles load balancing, scaling (up and down based on demand), service discovery, and fault tolerance for your containerized applications.<br>Multi-Container Management: While Docker manages individual containers, Kubernetes manages groups of containers and the overall architecture, making it easier to deploy microservices and complex applications.<br>Summary<br>Docker is focused on building and running individual containers.<br>Kubernetes is focused on managing clusters of containers and ensuring they run efficiently and reliably.<br>In practice, you often use both together: Docker to create the containers and Kubernetes to orchestrate them.</p>
+<hr>
+<p>Sources :</p>
+<p>Image - <a target="_blank" rel="noopener" href="https://www.bretfisher.com/kubernetes-vs-docker/">https://www.bretfisher.com/kubernetes-vs-docker/</a></p>
+<p>Image - <a target="_blank" rel="noopener" href="https://www.starwindsoftware.com/blog/virtualization/">https://www.starwindsoftware.com/blog/virtualization/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/18/docker/" data-id="cm2erpwbw0000hfqnfsp28yzm" data-title="Docker" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/10/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/18/docker/">Docker</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/18/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/18/kernel/">Kernel</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/18/kubernetes/">Kubernetes</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/18/virtualization/">Virtualization</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
