@@ -1,3 +1,7 @@
+---
+title: Kernel
+---
+
 # Kernel
 When thinking about a kernel in the context of a Content Management System (CMS), it usually refers to the core component or a framework that is responsible for handing the system's overall functionality.
 Basically, a kernel is a piece of the entire system that essentially controls what the other components do.
