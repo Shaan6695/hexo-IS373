@@ -1,3 +1,7 @@
+---
+title: Kubernetes
+---
+
 # Kubernetes
 Kubernetes is a platform that developers can use to manage containers and containerized workspaces at a large scale. It was made open-source by Google in 2014, and it has a vast ecosystem with various tools, utilities, etc.
 
