@@ -1,3 +1,7 @@
+---
+title: Virtualization
+---
+
 # Virtualization
 When dealing with content management systems, virtualization will most commonly refer to using a virtual machine (VM).
 As a whole, the term refers to creating a virtual version of something, such as a document or a database, to give some examples.
